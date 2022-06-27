@@ -8,7 +8,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
 */
 @import url('https://fonts.googleapis.com/css2?family=Joan&display=swap');
 div{
-    height: 100vh;
+    height: 140vh;
     width: 100%;
     background-image: url(../image/fondo.jpg);
     background-position: center;
