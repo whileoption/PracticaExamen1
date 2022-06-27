@@ -1,0 +1,49 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : Jun 26, 2022, 2:17:23 PM
+    Author     : Fabiola Mora
+*/
+@import url('https://fonts.googleapis.com/css2?family=Joan&display=swap');
+div{
+    height: 100vh;
+    width: 100%;
+    background-image: url(../image/fondo.jpg);
+    background-position: center;
+    background-size: cover;
+    padding-left: 5%;
+    padding-right: 5%;
+    box-sizing: border-box;
+    position: relative;
+}
+
+*{
+    margin:0;
+    padding:0;
+    font-family: 'Joan', serif;
+}
+
+.navbar{
+    height:15vh;
+    width:100%;
+    margin: auto;
+    display: flex;
+    align-items: center; 
+}
+
+.logo{
+    width:160px;
+    cursor: pointer;
+    display: flex;
+}
+nav{
+    flex:1;
+    padding-left: 60px;
+}
+nav ul li {
+    display: inline-block;
+    list-style: none;
+    margin: 0px 20px;
+}
