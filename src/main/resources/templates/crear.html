@@ -13,51 +13,59 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
     </head>
     
     <!-- NOMBRE cantidad precio local -->
-    <body>
-        <div class ="container">
-            <div class="card-header bg-black text-white"></div>
-            <div class="card-body">
-                <!-- esto es un formulario -->
-                <div class="container">
-                    <form th:object = "${verdura}"
-                          th:action="@{/save}"
-                          method="POST"
-                          >
-                        <input type="hidden" th:field="*{id}">   
-                        <div class="form-group mb-3 row">
-                            <label class="col-md-2 col-form-label" for="nombre">Nombre</label>
-                            <div class="col-sm-10"> 
-                                <input type="text" class="form-control form-control-sm col-md-6" th:field="*{nombre}">  
-                            </div>
-                        </div>
-                        <div class="form-group mb-3 row">
-                            <label class="form-control-sm col-md-2 col-form-label" for="cantidad">Cantidad</label>
-                            <div class="col-sm-10"> 
-                                <input type="text" class="form-control form-control-sm col-md-6" th:field="*{cantidad}">  
-                            </div>
-                        </div>
-                        <div class="form-group mb-3 row">
-                            <label class="form-control-sm col-md-2 col-form-label" for="precio">Precio</label>
-                            <div class="col-sm-10"> 
-                                <input type="text" class="form-control form-control-sm col-md-6" th:field="*{precio}">  
-                            </div>
-                        </div>
-                        
-                        
-                        <div class="form-group mb-3 row">
-                            <label class="form-control-sm col-md-2 col-form-label" for="sede">Sede</label>
-                            <div class="col-sm-10"> 
-                                <select th:field="*{local}" class="form-control form-control-sm col-md-6" id="local" aria-describedby="emailHelp"> 
-                                        <option th:each="x:${locales}"
-                                                th:value="${x.id}"
-                                                th:text="${x.local}"/>
-                                </select>   
-                            </div>
-                            <button type="submit" class="btn btn-primary" value="Guardar">Submit</button>
-                    </form>
-                        </div>
-                </div>  
+    <body >
+        <div class="card-header bg-black text-white"></div>
+        <div class="card-body">
+        
+        <div class="container">
+            <!-- aqui vamos a pasarle un objecto de tipo persona (el mismo que agregarmos en el model.atribute del controller -->
+        <form th:object = "${verdura}" 
+              th:action="@{/save}"
+              method="POST">  <!-- aqui lo mismo, pero con el metodo save del controller -->
+
+
+            <!-- aunque no se lo estemos pasando en pantalla, si esta. Porque nosotros le pusimos que fuera auto-incremental -->
+            <!-- si no podemos este input nos va a dar error -->
+            <input type="hidden" th:field="*{id}"> <!-- este va a ser el campo en nuestro objecto -->
+
+
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Nombre de la Verdura</label>
+                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" th:field="*{nombre}"><!-- este th es super importante, esto lo hacemos para que siempre se guarde en el objecto tipo persona, si no lo hacemos no se guarda -->
+                <div id="emailHelp" class="form-text"></div>
             </div>
-        </div>
+
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Cantidad a Agregar</label>
+                <input type="text" class="form-control" id="exampleInputPassword1" th:field="*{cantidad}">
+            </div>
+
+
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Precio</label>
+                <input type="text" class="form-control" id="exampleInputPassword1" th:field="*{precio}">
+            </div>
+
+
+            <div class="col-md-4">
+                <label for="inputState" class="form-label">Sede</label>
+                <select id="inputState" class="form-select" th:field="*{sede}">
+                    <!-- Por cada x que este en paises, paises es el que esta en personaController, dentro del metodo personaN, el que dice model.atributte(paises , lista de paises) -->
+                    <option th:each="x:${sedes}" 
+                            th:value="${x.id}" 
+                            th:text="${x.sede}"> <!-- este es un qui, que vendria siendo el nombre del pais en este caso -->
+                        <!-- y el id es el valor -->
+                    </option>
+
+                </select>
+            </div>
+            <div class="col-md-4">
+                <button type="submit" class="btn btn-primary">Guardar</button>
+            </div>
+
+
+        </form>
+            </div>
+            </div>
     </body>
 </html>

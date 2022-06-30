@@ -57,7 +57,8 @@ public class VerduraController {
     public String editarVerdura(@PathVariable("id") Long idVerdura, Model model){
       Verdura verdura = verduraService.getVerduraById(idVerdura);
       List<Sede> listaSedes = sedeService.listSede();
-      model.addAttribute("verdura", verdura);
+      
+      model.addAttribute("verdura",verdura);
       model.addAttribute("sedes", listaSedes);
         return "crear";
     }
@@ -66,5 +67,14 @@ public class VerduraController {
     public String eliminarVerdura(@PathVariable("id") Long idVerdura){
       verduraService.delete(idVerdura);
         return "redirect:/verdura";
+    }
+    
+    @GetMapping("/paiz")
+    public String Vpaises (Model model){
+     List<Sede> listaSedes = sedeService.listSede();
+     model.addAttribute("titulo", "Tabla Sedes");
+     model.addAttribute("sedess", listaSedes);
+     return "seDe";
+     
     }
 }
