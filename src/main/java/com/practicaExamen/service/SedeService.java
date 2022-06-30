@@ -18,11 +18,11 @@ import com.practicaExamen.repository.SedeRepository;
 public class SedeService implements ISedeService {
     
     @Autowired
-    private SedeRepository localRepository;
+    private SedeRepository sedeRepository;
 
     @Override
     public List<Sede> listSede() {
-       return (List<Sede>)localRepository.findAll();
+       return (List<Sede>)sedeRepository.findAll();
     }
     
 }
