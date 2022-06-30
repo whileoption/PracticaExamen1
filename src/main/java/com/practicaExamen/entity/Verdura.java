@@ -27,7 +27,6 @@ public class Verdura implements Serializable {
     private String nombre;
     private String cantidad;
     private String precio;
-    private String sedes_id;
 
     @ManyToOne
     @JoinColumn(name = "sedes_id")
